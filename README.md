@@ -23,9 +23,15 @@ Source the script
 
 the function to call is `Insulin()`
 You need to put in:
+
 DayInUse = The amount of fast insulin you use in units per day.
+
 NightInUse = The amount night insulin you use in units per day
+
 NrDays = How many days you are going to be away.
+
 NeedlesUse = the number of needles you use per day, default is 2
+
 BloodTest = how many blood sugar test sticks you use per day, dafault is 4
+
 ToFile = FALSE or TRUE (F/T) If you wanty to save the info to a ; separated csv file.
