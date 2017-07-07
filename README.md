@@ -4,6 +4,7 @@ Some scripts, mostly bash, to help with diabetes
 ###################
 ### Bash script ###
 ####################
+
 Copy file to the for example the $HOME/bin directory.
 The make the file executable, e.g.:
 
