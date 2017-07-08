@@ -36,7 +36,7 @@ NeedlesUse = the number of needles you use per day, default to 2
 
 BlTestUse = how many blood sugar test sticks you use per day, dafault to 4
 
-ToFile = FALSE or TRUE (F/T) If you wanty to save the info to a ; separated csv file.
+ToFile = FALSE or TRUE (F/T) If you wanty to save the info to a ; separated csv file, defaults to F.
 
 
 The second function is `InsulinDur `
@@ -50,4 +50,6 @@ Needl = The amouunt of Needles you have left.
 
 BloodTest = The amount of glucos test sticks you have left.
 
-The amount used per day defaults to the same as in the above function `Insulin` but you can change them to by stating the same variables as above with the correct value. 
+ToFile = FALSE or TRUE (F/T) If you wanty to save the info to a ; separated csv file, defaults to F.
+
+The amount used per day defaults to the same as in the above function `Insulin` but you can change them to by stating the same variables as above with the correct value.
