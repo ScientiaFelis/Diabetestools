@@ -21,7 +21,7 @@ The R script contains two functions. `Insulin` calculates how much you need to b
 
 Source the script
 
-`source("$HOME/InsulinUse.R")`
+`source("$HOME/InsulinUsage.R")`
 
 The first function is  `Insulin()`
 You need to put in:
