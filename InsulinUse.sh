@@ -26,7 +26,7 @@ if [[ $Calc -eq 1 ]]; then
 		read -p "Daily insulin use in units of rapid insulin (24): " DayInUse
 		read -p "Daily insulin use in units of night insulin (16): " NightInUse
 		read -p "Number of needles per day (2): " NeedlesUse
-		read -p "Number of glucos teststicks per day (4): " BloodTest
+		read -p "Number of glucos teststicks per day (4): " BlTestUse
 		read -p "Do you want to store in file (y/N)?: " ToFile
 
 			if [[ $ToFile == "y" ]]; then
@@ -37,7 +37,7 @@ if [[ $Calc -eq 1 ]]; then
 			DayInUse=${DayInUse:=24}
 			NightInUse=${NightInUse:=16}
 			NeedlesUse=${NeedlesUse:=2}
-			BloodTest=${BloodTest:=3}
+			BlTestUse=${BlTestUse:=3}
 
 		 ## Setting package sizes.
 		  DayAmpSize=300 ## Size of day insulin ampulls
@@ -89,8 +89,8 @@ if [[ $Calc -eq 1 ]]; then
 		       needl=$(( $needl+1 ))
 		  fi
 
-		  tests=$(( ( $BloodTest * $NrDays ) / $TestPack ))
-		   if [[ $(( ( $BloodTest * $NrDays ) % $TestPack )) -gt 0 ]]; then
+		  tests=$(( ( $BlTestUse * $NrDays ) / $TestPack ))
+		   if [[ $(( ( $BlTestUse * $NrDays ) % $TestPack )) -gt 0 ]]; then
 		       tests=$(( $tests+1 ))
 		   fi
 		  needles=$(echo "You will need" ${needl} "packages of needles in your stay of " ${NrDays} "days.")
@@ -148,7 +148,7 @@ else
 			read -p "Daily insulin use in units of rapid insulin (24): " DayInUse
 			read -p "Daily insulin use in units of night insulin (16): " NightInUse
 			read -p "Number of needles per day (2): " NeedlesUse
-			read -p "Number of glucos teststicks per day (4): " BloodTest
+			read -p "Number of glucos teststicks per day (4): " BlTestUse
 			read -p "Do you want to store in file (y/N)?: " ToFile
 
 				if [[ $ToFile == "y" ]]; then
@@ -159,7 +159,7 @@ else
 				DayInUse=${DayInUse:=24}
 				NightInUse=${NightInUse:=16}
 				NeedlesUse=${NeedlesUse:=2}
-				BloodTest=${BloodTest:=4}
+				BlTestUse=${BlTestUse:=4}
 				NrDayIN=${NrDayIN:=0} ## we set these to 0 as that will be 0 days.
 				NrNightIN=${NrNightIN:=0}
 				NrTestStick=${NrTestStick:=0}
@@ -181,7 +181,7 @@ else
 			  ## And Usage of Needles and Blood tests
 
 			 NrneDay=$((  $NrNeedles / $NeedlesUse ))
-			 NrtesDay=$((  $NrTestStick / $BloodTest ))
+			 NrtesDay=$((  $NrTestStick / $BlTestUse ))
 			  needledays=$(echo "You have ${NrneDay} days of needle use.")
 			  teststickor=$(echo "You have ${NrtesDay} days of blood glycos teststick use.")
 
