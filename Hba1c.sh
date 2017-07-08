@@ -37,7 +37,9 @@ case $FVal in
 	  elif [[ TVal == "mm/L" ]]; then
 		  #statements
 	  elif [[ TVal == "mg/dL" ]]; then
-		  #statements
+		  read -p "What is your NGSP value %: " NG
+		  mg=$( echo "scale=3;  (28.7 * $NG) - 46.7" | bc )
+		  echo "Your average blood sugare is ${mg} mg/dL"
 	  else
 			echo "You need to specify one of the values in the list."
 	  fi ;;
