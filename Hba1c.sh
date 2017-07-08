@@ -18,11 +18,11 @@ case $FVal in
 		echo "What do you want to convert to?"
 		read -p "NGSP; mm/L; mg/dL" TVal
 
-		if [[ TVal == "NGSP" ]]; then
+		if [[ "$TVal" == "NGSP" ]]; then
 			#statements
-		elif [[ TVal == "mm/L" ]]; then
+		elif [[ "$TVal" == "mm/L" ]]; then
 			#statements
-		elif [[ TVal == "mg/dL" ]]; then
+		elif [[ "$TVal" == "mg/dL" ]]; then
 			#statements
 		else
 			 echo "You need to specify one of the values in the list."
@@ -32,11 +32,11 @@ case $FVal in
 		echo "What do you want to convert to?"
 	 	read -p "IFCC; mm/L; mg/dL" TVal
 
-	  if [[ TVal == "IFCC" ]]; then
+	  if [[ "$TVal" == "IFCC" ]]; then
 		  #statements
-	  elif [[ TVal == "mm/L" ]]; then
+	  elif [[ "$TVal" == "mm/L" ]]; then
 		  #statements
-	  elif [[ TVal == "mg/dL" ]]; then
+	  elif [[ "$TVal" == "mg/dL" ]]; then
 		  read -p "What is your NGSP value %: " NG
 		  mg=$( echo "scale=3;  (28.7 * $NG) - 46.7" | bc )
 		  echo "Your average blood sugare is ${mg} mg/dL"
@@ -47,11 +47,11 @@ case $FVal in
 		echo "What do you want to convert to?"
 		read -p "IFCC, NGSP;  mg/dL" TVal
 
-		if [[ TVal == "NGSP" ]]; then
+		if [[ "$TVal" == "NGSP" ]]; then
 			#statements
-		elif [[ TVal == "IFCC" ]]; then
+		elif [[ "$TVal" == "IFCC" ]]; then
 			#statements
-		elif [[ TVal == "mg/dL" ]]; then
+		elif [[ "$TVal" == "mg/dL" ]]; then
 			#statements
 		else
 			 echo "You need to specify one of the values in the list."
@@ -61,11 +61,11 @@ case $FVal in
 		echo "What do you want to convert to?"
 		read -p "IFCC; NGSP; mm/L" TVal
 
-		if [[ TVal == "NGSP" ]]; then
+		if [[ "$TVal" == "NGSP" ]]; then
 			#statements
-		elif [[ TVal == "mm/L" ]]; then
+		elif [[ "$TVal" == "mm/L" ]]; then
 			#statements
-		elif [[ TVal == "IFCC" ]]; then
+		elif [[ "$TVal" == "IFCC" ]]; then
 			#statements
 		else
 			 echo "You need to specify one of the values in the list."
