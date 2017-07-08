@@ -8,23 +8,65 @@ set -eu
 
 clear
 
-echo "Converts between different Hba1c values (IFCC, NGSP) and average glucose levels (mm/L, mg/L)"
+echo "Converts between different Hba1c values (IFCC, NGSP) and average glucose levels (mm/L, mg/dL)"
 
 echo "What do you want to convert from?"
-read -p "IFCC, NGSP, mm/L, mg/L" FVal
-
-echo "What do you want to convert to?"
-read -p "IFCC, NGSP, mm/L, mg/L" FVal
+read -p "IFCC, NGSP, mm/L, mg/dL" FVal
 
 case $FVal in
 	IFCC)
-		if [[ TVal == "" ]]; then
+		echo "What do you want to convert to?"
+		read -p "NGSP; mm/L; mg/dL" TVal
+
+		if [[ TVal == "NGSP" ]]; then
 			#statements
-			elif [[ condition ]]; then
+		elif [[ TVal == "mm/L" ]]; then
 			#statements
-			else
-			 #statements
+		elif [[ TVal == "mg/dL" ]]; then
+			#statements
+		else
+			 echo "You need to specify one of the values in the list."
 		fi ;;
-	prefix) command ;;
-	prefix) command ;;
+
+	NGSP)
+		echo "What do you want to convert to?"
+	 	read -p "IFCC; mm/L; mg/dL" TVal
+
+	  if [[ TVal == "IFCC" ]]; then
+		  #statements
+	  elif [[ TVal == "mm/L" ]]; then
+		  #statements
+	  elif [[ TVal == "mg/dL" ]]; then
+		  #statements
+	  else
+			echo "You need to specify one of the values in the list."
+	  fi ;;
+	mm/L)
+		echo "What do you want to convert to?"
+		read -p "IFCC, NGSP;  mg/dL" TVal
+
+		if [[ TVal == "NGSP" ]]; then
+			#statements
+		elif [[ TVal == "IFCC" ]]; then
+			#statements
+		elif [[ TVal == "mg/dL" ]]; then
+			#statements
+		else
+			 echo "You need to specify one of the values in the list."
+		fi ;;
+
+	mg/dL)
+		echo "What do you want to convert to?"
+		read -p "IFCC; NGSP; mm/L" TVal
+
+		if [[ TVal == "NGSP" ]]; then
+			#statements
+		elif [[ TVal == "mm/L" ]]; then
+			#statements
+		elif [[ TVal == "IFCC" ]]; then
+			#statements
+		else
+			 echo "You need to specify one of the values in the list."
+		fi		;;
+*) echo "You need to specify one of the values in the list." ;;
 esac
