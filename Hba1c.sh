@@ -62,7 +62,9 @@ case $FVal in
 		read -p "IFCC; NGSP; mm/L" TVal
 
 		if [[ "$TVal" == "NGSP" ]]; then
-			#statements
+			read -p "What is your mg/dL value: " mgdl
+		 ngsp=$( echo "scale=3;  ($mgdl + 46.7) / 28.7"  | bc )
+		 echo "Your average blood sugare is ${ngsp} mg/dL"
 		elif [[ "$TVal" == "mm/L" ]]; then
 			#statements
 		elif [[ "$TVal" == "IFCC" ]]; then
