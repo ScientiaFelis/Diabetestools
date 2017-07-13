@@ -1,14 +1,14 @@
 ## To calculate how much insulin of diferent kind you'll need to bring.
 # rm(Amp, BloodTest, DayAmpSize, DayInUse, Dayneed, DayPackageAmpNr, DayUse, InsulinUsage, NAmp, needl, needles, NeedlesUse, NightAmpSize, NightInUse, Nightneed, NightPackageAmpNr, NightUse, NPack, NrDays, NUs, Pack, tests, teststickor, Us, Insulin)
 
-Insulin <- function(DayInUse = 24, NightInUse = 16, NrDays, NeedlesUse = 2, BlTestUse = 4, ToFile = F) {
+Insulin <- function(DayInUse = 24, NightInUse = 16, NrDays, NeedlesUse = 2, BlTestUse = 4, DayIn, NightIn, Needl, BloodTest, Calc = "Day", ToFile = F) {
 
   # Setting sizes of the packages.
   DayAmpSize = 300
   NightAmpSize = 300
   DayPackageAmpNr = 5
   NightPackageAmpNr = 5
-
+if(Calc == "Day"){
   # Day insulin
   Us <- DayInUse * NrDays
   Amp <- Us / DayAmpSize
@@ -71,9 +71,9 @@ Insulin <- function(DayInUse = 24, NightInUse = 16, NrDays, NeedlesUse = 2, BlTe
 
 
 ## HERE I WILL ISTEAD CALCULATE THE NUMBER OF DAYS A CERTAIN AMOUNT OF INSULIN ETC WILL DURE
-}
+else {
 
-InsulinDur <- function(DayIn, NightIn, Needl, BloodTest, DayInUse = 24, NightInUse = 16, NeedlesUse = 2, BlTestUse = 4, ToFile = F) {
+# InsulinDur <- function(DayIn, NightIn, Needl, BloodTest, DayInUse = 24, NightInUse = 16, NeedlesUse = 2, BlTestUse = 4, ToFile = F) {
 
    # Day insulin
    DayInDays <- DayIn / DayInUse
@@ -124,4 +124,6 @@ InsulinDur <- function(DayIn, NightIn, Needl, BloodTest, DayInUse = 24, NightInU
       cat(teststicka, "\n")
      }
 
+  }
+ }
 }
