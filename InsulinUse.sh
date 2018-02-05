@@ -10,8 +10,8 @@ echo "The number of days left given amount of equipment."
 echo ""
 echo "Default values in parentesis."
 echo ""
-echo "Do you want to calculate how much you'll use in a nr of days (1)"
-echo "Or how many days you equipment will last (2)"
+echo "Do you want to calculate how much you'll use in a nr of days - 1"
+echo "Or how many days you equipment will last - 2"
 read -p "1 or 2: " Calc
 
 if [[ $Calc -ne 1 && $Calc != 2 ]]; then
@@ -23,10 +23,10 @@ if [[ $Calc -eq 1 ]]; then
 ## HERE WE CALCULATE HOW MUCH EQUIPMENT YOU WILL NEED IN A CERTAIN NR OF DAYS.
 
 		read -p "Number of days: " NrDays
-		read -p "Daily insulin use in units of rapid insulin (24): " DayInUse
-		read -p "Daily insulin use in units of night insulin (16): " NightInUse
+		read -p "Daily insulin use in units of rapid insulin (22): " DayInUse
+		read -p "Daily insulin use in units of night insulin (14): " NightInUse
 		read -p "Number of needles per day (2): " NeedlesUse
-		read -p "Number of glucos teststicks per day (4): " BlTestUse
+		read -p "Number of glucos teststicks per day (3): " BlTestUse
 		read -p "Do you want to store in file (y/N)?: " ToFile
 
 			if [[ $ToFile == "y" ]]; then
@@ -34,8 +34,8 @@ if [[ $Calc -eq 1 ]]; then
 			fi
 
 		## Setting some default values
-			DayInUse=${DayInUse:=24}
-			NightInUse=${NightInUse:=16}
+			DayInUse=${DayInUse:=22}
+			NightInUse=${NightInUse:=14}
 			NeedlesUse=${NeedlesUse:=2}
 			BlTestUse=${BlTestUse:=3}
 
@@ -63,7 +63,7 @@ if [[ $Calc -eq 1 ]]; then
 
 		## Save the numbers in an explaining string
 		 DayUse=$(echo "You will use" ${Us} "units of Day insulin during your stay of" ${NrDays} "days")
-		 Dayneed=$(echo "You need to bring" ${Pack} "packages, each with" ${DayPackageAmpNr} "day insulin ampuls of" ${DayAmpSize} "units.")
+		 Dayneed=$(echo "You need to bring:" ${Amp} "ampulls, or" ${Pack} "packages each with" ${DayPackageAmpNr} "day insulin ampuls of" ${DayAmpSize} "units.")
 
 
 		  ## Make the same calculations for Night Insulin
@@ -79,12 +79,13 @@ if [[ $Calc -eq 1 ]]; then
 		   fi
 
 		  NightUse=$(echo "You will use" ${NUs} "units of Night insulin during your stay of" ${NrDays} "days.")
-		  Nightneed=$(echo "You need to bring:" ${NPack} "packages, each with" ${NightPackageAmpNr} "day insulin ampuls of" ${NightAmpSize} "units.")
+		  Nightneed=$(echo "You need to bring:" ${Amp} "ampulls, or" ${NPack} "packages each with" ${NightPackageAmpNr} "night insulin ampuls of" ${NightAmpSize} "units.")
 
 
 		  ## And Usage of Needles and Blood tests
 
 		  needl=$(( ( $NeedlesUse * $NrDays ) / $NeedlesPack ))
+		  needls=$(( $NeedlesUse * $NrDays ))
 		  if [[ $(( ( $NeedlesUse * $NrDays ) % $NeedlesPack )) -gt 0 ]]; then
 		       needl=$(( $needl+1 ))
 		  fi
@@ -93,8 +94,8 @@ if [[ $Calc -eq 1 ]]; then
 		   if [[ $(( ( $BlTestUse * $NrDays ) % $TestPack )) -gt 0 ]]; then
 		       tests=$(( $tests+1 ))
 		   fi
-		  needles=$(echo "You will need" ${needl} "packages of needles in your stay of " ${NrDays} "days.")
-		  teststickor=$(echo "You will need" ${tests} "packages of blood glycos tests in your stay of " ${NrDays} "days")
+		  needles=$(echo "You will need:" ${needls} "needles, or" ${needl} "packages of needles in your stay of " ${NrDays} "days.")
+		  teststickor=$(echo "You will need" ${tests} "packages of blood glycos teststicks on your stay of " ${NrDays} "days")
 
 		  ## Write the results
 
@@ -119,7 +120,7 @@ if [[ $Calc -eq 1 ]]; then
 		    echo "The results are saved in the file, Use of diabetes consumables.txt, in your HOME directory"
 				 	if [[ $Pri == "y" ]]; then ## if we also chose to print the file
 				 		lp "$HOME/Use of diabetes consumables.txt"  ## Print it in the default printer.
-						echo "The file have also been printed omn your default printer."
+						echo "The file have also been printed on your default printer."
 				 	fi
 
 		 else
@@ -145,10 +146,10 @@ else
 			read -p "Number of Night insulin units (0): " NrNightIN
 			read -p "Number of Teststicks (0): " NrTestStick
 			read -p "Number of Needles (0): " NrNeedles
-			read -p "Daily insulin use in units of rapid insulin (24): " DayInUse
-			read -p "Daily insulin use in units of night insulin (16): " NightInUse
+			read -p "Daily insulin use in units of rapid insulin (22): " DayInUse
+			read -p "Daily insulin use in units of night insulin (14): " NightInUse
 			read -p "Number of needles per day (2): " NeedlesUse
-			read -p "Number of glucos teststicks per day (4): " BlTestUse
+			read -p "Number of glucos teststicks per day (3): " BlTestUse
 			read -p "Do you want to store in file (y/N)?: " ToFile
 
 				if [[ $ToFile == "y" ]]; then
@@ -156,10 +157,10 @@ else
 				fi
 
 			## Setting some default values
-				DayInUse=${DayInUse:=24}
-				NightInUse=${NightInUse:=16}
+				DayInUse=${DayInUse:=22}
+				NightInUse=${NightInUse:=14}
 				NeedlesUse=${NeedlesUse:=2}
-				BlTestUse=${BlTestUse:=4}
+				BlTestUse=${BlTestUse:=3}
 				NrDayIN=${NrDayIN:=0} ## we set these to 0 as that will be 0 days.
 				NrNightIN=${NrNightIN:=0}
 				NrTestStick=${NrTestStick:=0}
