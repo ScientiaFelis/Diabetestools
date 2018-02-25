@@ -24,7 +24,7 @@ if [[ $Calc -eq 1 ]]; then
 
 		read -p "Number of days: " NrDays
 		read -p "Daily insulin use in units of rapid insulin (22): " DayInUse
-		read -p "Daily insulin use in units of night insulin (14): " NightInUse
+		read -p "Daily insulin use in units of night insulin (12): " NightInUse
 		read -p "Number of needles per day (2): " NeedlesUse
 		read -p "Number of glucos teststicks per day (3): " BlTestUse
 		read -p "Do you want to store in file (y/N)?: " ToFile
@@ -35,7 +35,7 @@ if [[ $Calc -eq 1 ]]; then
 
 		## Setting some default values
 			DayInUse=${DayInUse:=22}
-			NightInUse=${NightInUse:=14}
+			NightInUse=${NightInUse:=12}
 			NeedlesUse=${NeedlesUse:=2}
 			BlTestUse=${BlTestUse:=3}
 
@@ -147,7 +147,7 @@ else
 			read -p "Number of Teststicks (0): " NrTestStick
 			read -p "Number of Needles (0): " NrNeedles
 			read -p "Daily insulin use in units of rapid insulin (22): " DayInUse
-			read -p "Daily insulin use in units of night insulin (14): " NightInUse
+			read -p "Daily insulin use in units of night insulin (12): " NightInUse
 			read -p "Number of needles per day (2): " NeedlesUse
 			read -p "Number of glucos teststicks per day (3): " BlTestUse
 			read -p "Do you want to store in file (y/N)?: " ToFile
@@ -158,7 +158,7 @@ else
 
 			## Setting some default values
 				DayInUse=${DayInUse:=22}
-				NightInUse=${NightInUse:=14}
+				NightInUse=${NightInUse:=12}
 				NeedlesUse=${NeedlesUse:=2}
 				BlTestUse=${BlTestUse:=3}
 				NrDayIN=${NrDayIN:=0} ## we set these to 0 as that will be 0 days.
